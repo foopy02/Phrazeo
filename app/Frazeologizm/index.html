@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Rouge+Script&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__logo">Phrazeo</div>
+                <nav class="nav">
+                    <a href="#" class="nav__link">О нас</a>
+                    <a href="#" class="nav__link">О компании</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Intro -->
+    <div class="intro">
+        <div class="container">
+            <div class="intro__inner">
+                <h1 style="font-size: 36px; font-weight: 400;">Найди фразеологизмы и крылатые выражения для своих эссе</h1>
+                <h2 style="font-size: 24px; font-weight: 400;">Просто введи слово, которое должно содержаться в фразеологизму</h2>
+
+                <form action="#" class="intro__form">
+                    <input  type="text"  placeholder="Какое слово" class="intro__search">
+                    <div class="search" style="display:flex; flex-direction:column;align-items:center" >
+                        <label for="Search"> <img src="assets/image/search.svg" alt="Search"></label>
+                        <input style="background-color: transparent;" name="Search" type="submit" value="Поиск" class="intro__btn">
+                    </div>
+
+                </form>
+
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results -->
+    <div class="container">
+        <h2 style="font-size: 24px; font-weight: 400;">Мы нашли несколько фразеологизмов со словом <i><b>какое слово</b></i> </h2>
+        <div class="results">
+            <div class="results__item">
+                <div class="results__variant active">
+                    <div class="variant__title">
+                        
+                        <p>Какой-то прекрасный фразеологизм</p>
+                        <img class="variant__img" src="assets/image/minus.png" alt="">
+                    </div>
+                    <div class="variant__content active">
+                        <p>Какое-то объяснение этого фразеологизма (НАЖАТЬ НА НАЗВАНИЕ ЧТОБЫ УВИДЕТЬ)</p> 
+                    </div>
+                </div>
+                <div class="results__variant">
+                    <div class="variant__title">
+                        <p>Какой-то прекрасный фразеологизм</p>
+                        <img class="variant__img" src="assets/image/plus.png" alt="">
+                    </div>
+                </div>
+                <div class="results__variant">
+                    <div class="variant__title">
+                        <p>Какой-то прекрасный фразеологизм</p>
+                        <img class="variant__img" src="assets/image/plus.png" alt="">
+                    </div>
+                </div>
+                <div class="results__variant">
+                    <div class="variant__title">
+                        <p>Какой-то прекрасный фразеологизм</p>
+                        <img class="variant__img" src="assets/image/plus.png" alt="">
+                    </div>
+                </div>
+                <div class="results__variant">
+                    <div class="variant__title">
+                        <p>Какой-то прекрасный фразеологизм</p>
+                        <img class="variant__img" src="assets/image/plus.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="results__item">
+                <img src="http://placehold.it/570x540" alt="">
+            </div>
+        </div>
+        <hr>
+    </div>
+
+    <!-- Posible Variants -->
+    <div class="posibilities">
+        <div class="container">
+            <h2>Возможно, вас заинтересуют следующие результаты:</h2>
+            <div class="posibilities__inner">
+                <div class="posibilities__item">
+                    <div class="pos__title">
+                        <p>Какой-то прекрасный фразеологизм</p>
+                        <img class="pos__img" src="assets/image/plus.png" alt="">
+                    </div>
+                </div>
+                <div class="posibilities__item">
+                    <div class="pos__title">
+                        <p>Какой-то прекрасный фразеологизм</p>
+                        <img class="pos__img" src="assets/image/plus.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

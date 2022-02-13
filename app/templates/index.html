@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Rouge+Script&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a class="header__logo" href="/">Phrazeo</a>
+                <!-- <nav class="nav">
+                    <a href="#" class="nav__link">О нас</a>
+                    <a href="#" class="nav__link">О компании</a>
+                </nav> -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Intro -->
+    <div class="intro">
+        <div class="container">
+            <div class="intro__inner">
+                <h1 style="font-size: 36px; font-weight: 400;">Найди фразеологизмы и крылатые выражения для своих эссе</h1>
+                <h2 style="font-size: 24px; font-weight: 400;">Просто введи слово, которое должно содержаться в фразеологизму</h2>
+
+                <form action="/find_idioms" method="POST" class="intro__form">
+                    <input  type="text" name="word" placeholder="Какое слово" class="intro__search">
+                    <div class="search" style="display:flex; flex-direction:column;align-items:center" >
+                        <label for="Search"> <img src="{{url_for('static',filename='image/search.svg')}}" alt="Search"></label>
+                        <input style="background-color: transparent;" name="Search" type="submit" value="Поиск" class="intro__btn">
+                    </div>
+
+                </form>
+
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    {% if related_idioms is defined %}
+    <!-- Results -->
+    <div class="container">
+        <h2 style="font-size: 24px; font-weight: 400;">Мы нашли несколько фразеологизмов со словом <i><b>{{searched_word}}</b></i> </h2>
+        <div class="results">
+            <div class="results__item">
+                {% for idiom in related_idioms %}
+                <div class="results__variant active">
+                    <div class="variant__title">
+                        <p>{{idiom.text}}</p>
+                        {% if idiom.description is not none %}
+                        <div class="switcher" id="switcher" > 
+                            <div class="vert_line" id="vert_line1"></div>
+                            <div class="vert_line" id="vert_line2"></div>
+                        </div>
+                        {% endif%}
+                    </div>
+                    {% if idiom.description is not none %}
+                    <div class="variant__content">
+                        <p class="description_of_idiom">{{idiom.description}}</p> 
+                    </div>
+                    {% endif%}
+                </div>
+
+                {% endfor %}
+            </div>
+            <div class="results__item images">
+                <div>
+                    <img src="{{url_for('static',filename='image/horse.png')}}" alt="">
+                    <img src="{{url_for('static',filename='image/step.png')}}" alt="">
+                </div>
+                <div>
+                    <img src="{{url_for('static',filename='image/eye.png')}}" alt="">
+                    <img src="{{url_for('static',filename='image/fire.png')}}" alt="">
+                </div>
+                
+
+
+                
+            </div>
+        </div>
+        <hr>
+    </div>
+    {% endif %}
+    {% if suggested_idioms is defined and suggested_idioms|length > 0 %}
+    <!-- Posible Variants -->
+    <div class="posibilities">
+        <div class="container">
+            <h2>Возможно, вас заинтересуют следующие результаты:</h2>
+            {% for idiom in suggested_idioms %}
+            <div class="results__variant active">
+                <div class="variant__title">
+                    <p>{{idiom.text}}</p>
+                    {% if idiom.description is not none %}
+                    <div class="switcher" id="switcher" > 
+                        <div class="vert_line" id="vert_line1"></div>
+                        <div class="vert_line" id="vert_line2"></div>
+                    </div>
+                    {% endif%}
+                </div>
+                {% if idiom.description is not none %}
+                <div class="variant__content">
+                    <p class="description_of_idiom">{{idiom.description}}</p> 
+                </div>
+                {% endif%}
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+    {% endif %}
+<script src="{{url_for('static',filename='js/scripts.js')}}"></script>
+</body>
+</html>
